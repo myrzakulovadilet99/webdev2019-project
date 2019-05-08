@@ -1,0 +1,318 @@
+<header *ngIf="logged">
+  <ng-container *ngIf="!gymClicked">
+    <img src="http://www.fitnessblitz.com/cms/uploads/file_1513237297_673122978.png" style="display: inline-block; max-width: 30%">
+    <a class = "ofitness" (click)="getAbout()">O FITNESSBLITZ</a>
+  </ng-container>
+  <ng-container *ngIf="gymClicked">
+    <div class = "main_div">
+      <div class = "header_div">
+        <img src="http://www.fitnessblitz.com/cms/uploads/file_1513237297_673122978.png">
+        <div class="nav">
+          <ul>
+<!--            <li><a routerLink=""  id="nav_element1">O FITNESSBLITZ</a></li>-->
+            <li><a routerLink="" id = "nav_element2" (click)="gymClicked=false" >НАШИ КЛУБЫ</a></li>
+            <li><a routerLink="" id = "nav_element3">ТРЕНЕРЫ</a></li>
+            <li><a routerLink="" id = "nav_element4">НОВОСТИ</a></li>
+            <li><a routerLink="" (click)="getFeedback()">ОТЗЫВЫ</a></li>
+            <li><a routerLink="">ОПЛАТА</a></li>
+            <li><a routerLink="">КОНТАКТЫ</a></li>
+            <button id="logout" (click)="logout()">Log out</button>
+            <!--        <li><button  id = "vhod">Вход</button></li>-->
+            <!--        <li><button id = "reg">Регистрация</button></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</header>
+<body>
+  <ng-container id="1" *ngIf="!logged">
+      <div class="authorization">
+        <div><input type="text" [(ngModel)]="username" placeholder="username"></div>
+        <div><input type="password" [(ngModel)]="password" placeholder="password"></div>
+        <div><button (click)="auth()">login</button></div>
+      </div>
+  </ng-container>
+
+    <ng-container *ngIf="logged">
+      <ng-container *ngIf="!feedbackClicked">
+        <ng-container *ngIf="!gymClicked && fitnessClicked">
+          <ng-container *ngFor="let a of aboutInfo">
+
+            <div class = "fitnessText1">
+              {{a.text1}}
+            </div>
+            <div class = "fitnessPhoto">
+              <img src="{{a.photo}}">
+            </div>
+            <div class = "fitnessText2">
+              {{a.text2}}
+            </div>
+            <div class = "fitnessText3">
+              <ul>
+                {{a.text3}}
+              </ul>
+            </div>
+            <button style="color:white; background-color: black; width: 150px; height: 50px" (click)="fitnessClicked=false">◄back</button>
+          </ng-container>
+        </ng-container>
+
+        <div *ngIf="!gymClicked && !fitnessClicked ">
+          <h1>Gyms:</h1>
+          <div class = "gyms">
+            <figure class="figGym" *ngFor="let gym of gyms">
+
+              <a><img src="{{gym.image}}" (click)="getCoaches(gym)"></a>
+              <figcaption class="gymName">
+                {{gym.name}}
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div *ngIf="gymClicked && !fitnessClicked" style="text-align: center;">
+          <div class = "gym">
+            <p style="color:black; width: 40%; font-size: 50px; margin-left: 50px; margin-bottom: 0;">{{curGym.name}}</p>
+            <div class="photoGym" style="width: 40%; ">
+              <a><img src="{{curGym.image}}"></a>
+              <div class="gymName">
+                <p>
+                  Название тренажерного зала: {{curGym.name}}.<br>
+                  Адрес:{{curGym.address}}.<br>
+                  Мы работаем с {{curGym.start_time}} по
+                  {{curGym.end_time}}
+                </p>
+              </div>
+            </div>
+            <div class="aboutGym" style="height: 450px;">
+              <div style="width: 200px; float: left; margin-left: 60px;"><span style="font-size: 25px;">площадь:</span><br><span style="background-color: rgb(255,37,3); color: aliceblue; font-size: 50px;">{{curGym.area}}м2</span></div>
+              <div style="margin-left: 30px; width: 250px ; float: left;"><span style="font-size: 25px;">позиций тренажеров:</span><br><span style="background-color: rgb(255,37,3); color: aliceblue;font-size: 50px;">{{curGym.simulator_positions}}</span></div>
+              <div class="scrollbar"><p>{{curGym.best_sides}}</p></div>
+            </div>
+          </div>
+          <div style="font-weight: bold; margin-top: 150px; font-size: 25px"><a style="color: #ef4430;" href="tel:+7(747)9011033">+7 (747) 901 10 33</a></div>
+          <table border="1" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+              <td colspan="4" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Режим работы:ежедневно с06:00до23:30, Воскресенье с11:00до21:00&quot;}" rowspan="1"><span class="redRows">Режим работы:ежедневно с 06:00 до 23:30, Воскресенье с 11:00 до 21:00</span></td>
+            </tr>
+            <tr>
+              <td colspan="4" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Абонемент - &quot;БАНЗАЙ SILVER&quot;&quot;}" rowspan="1"><span class="redRows">Абонемент - "БАНЗАЙ SILVER"</span></td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Разовая тренировка
+                2500 тг.(Каждая 5-ая трен-ка бесплатно)&quot;}"><span class="redRows">Разовая тренировка<br>
+                2500 тг. (Каждая 5-я трен. бесплатно)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Мужской
+                абонемент&quot;}"><span class="whiteRows">Мужской<br>
+                абонемент</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Женский
+                абонемент&quot;}"><span class="whiteRows">Женский<br>
+                абонемент</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Студенч,пенс,инв
+                абонемент&quot;}"><span class="whiteRows">Студенч,пенс,<br>
+                инв.<br>
+                абонемент</span></td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;2 раза в неделю
+                (8 трен.)&quot;}"><span class="redRows">2 раза в неделю<br>
+                (8 трен.)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                8000тнг.
+                06:00-23:30
+                12000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                8000тнг.<br>
+                06:00-23:30<br>
+                12000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                7000тнг.
+                06:00-23:30
+                12000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                7000тнг.<br>
+                06:00-23:30<br>
+                12000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-18:00
+                6500тнг.&quot;}"><span class="whiteRows">06:00-18:00<br>
+                6500тнг.</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;3 раза в неделю
+                (12 трен)&quot;}"><span class="redRows">3 раза в неделю<br>
+                (12 трен)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                9000тнг.
+                06:00-23:30
+                13000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                9000тнг.<br>
+                06:00-23:30<br>
+                13000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                8000тнг.
+                06:00-23:30
+                13000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                8000тнг.<br>
+                06:00-23:30<br>
+                13000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-18:00
+                7000тнг.&quot;}"><span class="whiteRows">06:00-18:00<br>
+                7000тнг.</span></td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;4 раза в неделю
+                (16 трен)&quot;}"><span class="redRows">4 раза в неделю<br>
+                (16 трен)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                10000тнг.
+                06:00-23:30
+                14000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                10000тнг.<br>
+                06:00-23:30<br>
+                14000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                9000тнг.
+                06:00-23:30
+                14000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                9000тнг.<br>
+                06:00-23:30<br>
+                14000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-18:00
+                8000тнг.&quot;}"><span class="whiteRows">06:00-18:00<br>
+                8000тнг.</span></td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;МЕСЯЧНЫЙ БЕЗЛИМИТ:&quot;}"><span class="redRows">МЕСЯЧНЫЙ БЕЗЛИМИТ:</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                11000тнг.
+                06:00-23:30
+                15000тнг.
+                (без права продления заморозки)&quot;}"><span class="whiteRows">06:00-17:00<br>
+                11000тнг.<br>
+                06:00-23:30<br>
+                15000тнг.<br>
+                (без права продления заморозки)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                10000тнг.
+                06:00-23:30
+                15000тнг.
+                (без права продления заморозки)&quot;}"><span class="whiteRows">06:00-17:00<br>
+                10000тнг.<br>
+                06:00-23:30<br>
+                15000тнг.<br>
+                (без права продления заморозки)</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-18:00
+                9000тнг.
+
+
+                (без права продления заморозки)&quot;}"><span class="whiteRows">06:00-18:00<br>
+                9000тнг.<br>
+                <br>
+                <br>
+                (без права продления заморозки)</span></td>
+            </tr>
+            <tr>
+              <td colspan="4" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Абонемент - &quot;БАНЗАЙ GOLD&quot;
+                Дает право на посещение всех залов сети &quot;Банзай&quot;,  без права продления и заморозки.&quot;}" rowspan="1"><span class="redRows">Абонемент - "БАНЗАЙ GOLD"<br>
+                Дает право на посещение всех залов сети "Банзай", без права продления и заморозки.</span></td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;GOLD
+                Месячный безлимит:&quot;}"><span class="redRows">GOLD<br>
+                Месячный безлимит:</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                14.000тнг.
+                06:00-23:30
+                18.000тнг.
+                &quot;}"><span class="whiteRows">06:00-17:00<br>
+                14.000тнг.<br>
+                06:00-23:30<br>
+                18.000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                13.000тнг.
+                06:00-23:30
+                17.000тнг.
+                &quot;}"><span class="whiteRows">06:00-17:00<br>
+                13.000тнг.<br>
+                06:00-23:30<br>
+                17.000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-18:00
+                10.000тнг.
+
+
+                &quot;}"><span class="whiteRows">06:00-18:00<br>
+                10.000тнг.</span><br>
+                <br>
+                &nbsp;</td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;GOLD
+                Полугодовой абонемент:&quot;}"><span class="redRows">GOLD<br>
+                Полугодовой абонемент:</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                55.000тнг.
+                06:00-23:30
+                70.000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                55.000тнг.<br>
+                06:00-23:30<br>
+                70.000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                50.000тнг.
+                06:00-23:30
+                65.000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                50.000тнг.<br>
+                06:00-23:30<br>
+                65.000тнг.</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;GOLD
+                Годовой абонемент:&quot;}"><span class="redRows">GOLD<br>
+                Годовой абонемент:</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                95.000тнг.
+                06:00-23:30
+                130.000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                95.000тнг.<br>
+                06:00-23:30<br>
+                130.000тнг.</span></td>
+              <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;06:00-17:00
+                85.000тнг.
+                06:00-23:30
+                120.000тнг.&quot;}"><span class="whiteRows">06:00-17:00<br>
+                85.000тнг.<br>
+                06:00-23:30<br>
+                120.000тнг.</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class = "coaches">
+            <h1>Наши тренеры:</h1>
+            <figure class="figCoach" *ngFor="let coach of coaches">
+              <a><img src="{{coach.image}}" (click)="gymClicked=true"></a>
+              <figcaption class="coachName">
+                <h2 style="text-align: center; font-family: 'Yu Gothic';">{{coach.name}} {{coach.surname}}</h2>
+                <p style="border-radius: 8px; color: white; font-size: 20px; font-weight: bold;background-color: rgb(255,37,3); height: 30px; padding-top: 4px; text-align: center;">фитнес-инструктор</p>
+                <p style="max-width: 300px; font-weight: bold;">Опыт работы инструктором: {{coach.experience}} года. Стоймость индивидуального тренинга: {{coach.price}}тг.(1 мес./12 занятий)</p>
+              </figcaption>
+            </figure>
+          </div>
+          <button style="color:white; background-color: black; width: 150px; height: 50px" (click)="gymClicked=false">◄back</button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="feedbackClicked">
+        <ng-container *ngFor="let f of feedbacks">
+          <div>
+            {{f.id}}
+          </div>
+          <div>
+            {{f.date}}
+          </div>
+          <div>
+            {{f.comment}}
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+</body>

@@ -38,3 +38,42 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+class Coach(models.Model):
+    name = models.CharField(max_length=200)
+    surname = models.CharField(max_length=200)
+    # photo = models.ImageField()
+    experience = models.IntegerField()
+    work_days = models.CharField(max_length=200)
+    image = models.CharField(max_length=400, default=None, null=True)
+    price = models.IntegerField(default=None, null=True)
+    gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
+    objects = GymManager()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'coach'
+        verbose_name_plural = 'coaches'
+
+class Subscription(models.Model):
+    card_number = models.CharField(max_length=200)
+    price = models.IntegerField()
+    duration = models.CharField(max_length=200)
+    has_coach = models.BooleanField(default=False)
+    allowed_from = models.TimeField()
+    allowed_until = models.TimeField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None, null=True)
+    objects = GymManager()
+
+    def __str__(self):
+        return self.client.name
+
+class About(models.Model):
+    photo = models.CharField(max_length=500)
+    text1 = models.TextField()
+    text2 = models.TextField()
+    text3 = models.TextField()
+
+    def __str__(self):
+        return self.text2

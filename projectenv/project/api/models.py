@@ -24,20 +24,6 @@ class Gym(models.Model):
         return self.name
 
 
-class Client(models.Model):
-    name = models.CharField(max_length=200)
-    surname = models.CharField(max_length=200)
-    age = models.IntegerField()
-    status = models.CharField(max_length=200)
-    registered_date = models.DateTimeField()
-    image = models.CharField(max_length=400, default=None, null=True)
-    coach = models.ForeignKey(Coach, on_delete=models.CASCADE, default=None, null=True)
-    gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
-    objects = GymManager()
-
-    def __str__(self):
-        return self.name
-
 class Coach(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
@@ -56,6 +42,36 @@ class Coach(models.Model):
         verbose_name = 'coach'
         verbose_name_plural = 'coaches'
 
+
+class Client(models.Model):
+    name = models.CharField(max_length=200)
+    surname = models.CharField(max_length=200)
+    age = models.IntegerField()
+    status = models.CharField(max_length=200)
+    registered_date = models.DateTimeField()
+    image = models.CharField(max_length=400, default=None, null=True)
+    coach = models.ForeignKey(Coach, on_delete=models.CASCADE, default=None, null=True)
+    gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
+    objects = GymManager()
+
+    def __str__(self):
+        return self.name
+
+
+class Test(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None, null=True)
+    height = models.IntegerField()
+    weight = models.FloatField()
+    chest_girth = models.FloatField()
+    waist_circumference = models.FloatField()
+    hip_girth = models.FloatField()
+    body_type = models.CharField(max_length=200)
+    objects = GymManager()
+
+    def __str__(self):
+        return self.client.name
+
+
 class Subscription(models.Model):
     card_number = models.CharField(max_length=200)
     price = models.IntegerField()
@@ -69,6 +85,17 @@ class Subscription(models.Model):
     def __str__(self):
         return self.client.name
 
+
+class Feedback(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None, null=True)
+    date = models.DateTimeField()
+    comment = models.CharField(max_length=1000)
+    gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
+    objects = GymManager()
+
+    def __str__(self):
+        return self.client.name
+
 class About(models.Model):
     photo = models.CharField(max_length=500)
     text1 = models.TextField()
@@ -77,3 +104,8 @@ class About(models.Model):
 
     def __str__(self):
         return self.text2
+
+
+
+
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes
-from api.models import Gym, Client
+from api.models import Gym,Client,Coach,Subscription,Test,Feedback
 from api.serializers import GymSerializer
 from rest_framework import status
 from rest_framework.response import Response

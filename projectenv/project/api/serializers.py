@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Client, Gym
+from api.models import Client, Coach, Test, Subscription, Gym, About
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -37,6 +37,21 @@ class GymSerializer(serializers.Serializer):
         return instance
 
 
+class CoachSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+    surname = serializers.CharField(required=True)
+    experience = serializers.IntegerField(required=True)
+    work_days = serializers.CharField(required=True)
+    image = serializers.CharField(required=True)
+    price = serializers.IntegerField(required=True)
+    gym_id = serializers.IntegerField(write_only=True)
+
+    class Meta:
+        model = Coach
+        fields = ('id', 'name', 'surname', 'experience', 'work_days', 'image', 'gym_id', 'price')
+
+
 class ClientSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
@@ -51,4 +66,47 @@ class ClientSerializer(serializers.ModelSerializer):
         model = Client
         fields = ('id', 'name', 'surname', 'age', 'status', 'registered_date', 'image', 'coach_id', 'gym_id')
 
+
+class FeedbackSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    client_id = serializers.IntegerField(write_only=True)
+    date = serializers.DateTimeField(required=True)
+    comment = serializers.CharField(required=True)
+    gym_id = serializers.IntegerField(write_only=True)
+
+class TestSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    client_id = serializers.IntegerField(write_only=True)
+    height = serializers.IntegerField(required=True)
+    weight = serializers.FloatField(required=True)
+    chest_girth = serializers.FloatField(required=True)
+    waist_circumference = serializers.FloatField(required=True)
+    hip_girth = serializers.FloatField(required=True)
+    body_type = serializers.CharField(required=True)
+    class Meta:
+        model = Test
+        fields = ('id', 'client_id', 'height', 'weight', 'chest_girth', 'waist_circumference', 'hip_girth', 'body_type')
+
+class SubscriptionSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    card_number = serializers.CharField(required=True)
+    price = serializers.IntegerField(required=True)
+    duration = serializers.CharField(required=True)
+    has_coach = serializers.BooleanField(required=True)
+    allowed_from = serializers.TimeField(required=True)
+    allowed_until = serializers.TimeField(required=True)
+    client_id = serializers.IntegerField(write_only=True)
+
+    class Meta:
+        model = Subscription
+        fields = ('id', 'card_number', 'price', 'duration', 'has_coach', 'allowed_from', 'allowed_until', 'client_id')
+
+class AboutSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    text1 = serializers.CharField(required=True)
+    text2 = serializers.CharField(required=True)
+    text3 = serializers.CharField(required=True)
+    class Meta:
+        model = About
+        fields = ('id', 'photo', 'text1', 'text2', 'text3')
 

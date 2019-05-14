@@ -1,0 +1,17 @@
+.coach img {
+  width: 720px;
+  height: 480px;
+  margin-top: 40px;
+  margin-left: 450px;
+  border: 5px double red;
+}
+.coach p {
+  color: white;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 20px;
+}
+ul li {
+  color: red;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 20px;
+}

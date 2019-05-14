@@ -1,0 +1,24 @@
+
+<div class="coach">
+  <img src="{{currentCoach.image}}">
+  <h2 style="color: #ffae00; background-color: #131313; width: 400px; font-size: 28px">{{currentCoach.name}} {{currentCoach.surname}}</h2>
+  <p class = "instructor">ФИТНЕС-ИНСТРУКТОР</p>
+  <p class = "experience">Режим работы:{{currentCoach.work_days}}</p>
+  <p>Спецификация инструкторской деятельности: {{currentCoach.activity}}</p>
+  <ul>
+    <li *ngFor="let act of activities">{{ act }}</li>
+  </ul>
+  <p>Образование: {{currentCoach.education}}</p>
+  <ul>
+    <li *ngFor="let edu of education">{{ edu }}</li>
+  </ul>
+  <p>​Хобби: {{currentCoach.hobby}}</p>
+  <ul>
+    <li *ngFor="let hob of hobbies">{{ hob }}</li>
+  </ul>
+  <p>Достижения: {{currentCoach.achievement}}</p>
+  <ul>
+    <li *ngFor="let ach of achievements">{{ ach }}</li>
+  </ul>
+  <p>​​Стоимость индивидуального тренинга: {{currentCoach.price}} тг. (1 мес. / 12 занятий).</p>
+</div>

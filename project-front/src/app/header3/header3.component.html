@@ -1,0 +1,66 @@
+<ng-container>
+  <div class = "main_div">
+    <div class = "header_div">
+      <div class="logo">
+        <img (click)="toMainPage()" src="https://s3.amazonaws.com/peoplepng/wp-content/uploads/2018/11/11204843/Gym-Free-Download-PNG.png">
+        <h2>DENSAULYQ</h2>
+      </div>
+      <div class="nav">
+        <ul>
+          <!--            <li><a routerLink=""  id="nav_element1">O FITNESSBLITZ</a></li>-->
+          <li><a routerLink="" id = "nav_element2" (click)="club()" >НАШИ КЛУБЫ</a></li>
+          <li><a routerLink="" id = "nav_element3" (click)="trener()">ТРЕНЕРЫ</a></li>
+          <li><a routerLink="" id = "nav_element4">НОВОСТИ</a></li>
+          <li><a routerLink="" (click)="getFeedback()">ОТЗЫВЫ</a></li>
+          <li><a routerLink="">ОПЛАТА</a></li>
+          <li><a routerLink="">КОНТАКТЫ</a></li>
+          <button id="logout" (click)="logout()">LOG OUT</button>
+          <button class = "login" (click)="log()">LOG IN</button>
+          <!--        <li><button  id = "vhod">Вход</button></li>-->
+          <!--        <li><button id = "reg">Регистрация</button></li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="authlogin && !registered">
+
+    <div class="background1">
+    </div>
+    <div class="authorization">
+      <button class="xbutton" (click)="x()">X</button>
+      <img src="https://www.shareicon.net/download/2015/09/14/100950_user_512x512.png" style="display: inline-block;">
+      <div><input type="text" [(ngModel)]="username" placeholder="Username"></div>
+      <div><input type="password" [(ngModel)]="password" placeholder="Password"></div>
+      <input type="checkbox" [(ngModel)]="asAdmin" value="admin" [checked]="asAdmin"> as Admin<br>
+      <input type="checkbox" [(ngModel)]="asClient" value="client" [checked]="asClient"> as Client<br>
+      <div class="loginbutton"><button (click)="auth()">LOG IN</button></div>
+      <div class="regbutton1"><button (click)="reg()">Register</button></div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="authlogin && registered">
+    <div class="background2">
+    </div>
+    <div class="registration">
+      <button class="xbutton" (click)="x()">X</button><br><br><br>
+      <!--      <img src="https://www.shareicon.net/download/2015/09/14/100950_user_512x512.png" style="display: inline-block;">-->
+      <span class="reg">REGISTRATION FORM</span><br>
+      <span>Name</span>
+      <div><input type="text" [(ngModel)]="name" placeholder="Name"></div>
+      <span>Surname</span>
+      <div><input type="text" [(ngModel)]="surname" placeholder="Surname"></div>
+      <span>Username</span>
+      <div><input type="text" [(ngModel)]="username" placeholder="Username"></div>
+      <span>Password</span>
+      <div><input type="password" [(ngModel)]="password" placeholder="Password"></div>
+      <span>Confirm Password</span>
+      <div><input type="password" [(ngModel)]="password2" placeholder="Password"></div>
+      <span>Email Address</span>
+      <div><input type="text" [(ngModel)]="email" placeholder="Email"></div>
+      <span>Phone Number</span>
+      <div><input type="text" [(ngModel)]="phone" placeholder="Phone Number"></div>
+      <span>Status</span>
+      <div><input type="text" [(ngModel)]="status" placeholder="Status"></div>
+      <div class="regbutton2"><button (click)="register()">Register</button></div>
+    </div>
+  </ng-container>
+</ng-container>

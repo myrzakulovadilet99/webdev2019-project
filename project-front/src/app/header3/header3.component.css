@@ -1,0 +1,248 @@
+.login {
+  cursor: pointer;
+  color: white;
+  padding: 14px 16px;
+  font-family: 'Open Sans',sans-serif;
+  text-decoration: none;
+  background-color: green;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  float: right;
+  border-radius: 4px;
+  border: 0;
+  margin-left: 20px;
+}
+.login:hover {
+  color: black;
+}
+.logo img {
+  height: 100px;
+  width: 200px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  /*background-color: black;*/
+  cursor: pointer;
+}
+.logo {
+  width: 100px;
+  height: 150px;
+  display: inline-block;
+
+}
+.logo h2 {
+  color: red;
+  background-color: #141414;
+  width: 180px;
+  font-weight: bold;
+  padding-left: 25px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.header_div img {
+  display: inline-block;
+}
+.header_div{
+  width: 100%;
+}
+.nav {
+  display: inline-block;
+  margin-top: 93px;
+  float: right;
+  /*background-color: black;*/
+}
+/*.nav ul {*/
+/*  list-style-type: none;*/
+/*  overflow: hidden;*/
+/*}*/
+
+.nav li {
+  display: inline-block;
+}
+#nav_element1{
+  border-radius: 3px;
+}
+
+.nav li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  font-family: 'Open Sans',sans-serif;
+  text-decoration: none;
+  background-color: #1c2833;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+.nav li a:hover {
+  font-family: Open Sans,sans-serif;
+  text-decoration: none;
+  border-radius: 3px;
+  color: red;
+}
+#logout {
+  color: white;
+  background-color: #ff4c43;
+  font-family: Open Sans,sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  height: 47px;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 170px;
+  float: right;
+  border: 0;
+}
+#logout:hover {
+  font-family: Open Sans,sans-serif;
+  color: black;
+  cursor: pointer;
+}
+/***********************new************************/
+
+.background1 {
+  position: fixed;
+  z-index: 1;
+  width: 600px;
+  height: 400px;
+  padding-top: 80px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+  /*-webkit-filter: blur(2px);*/
+  background-color: white;
+}
+.background2 {
+  position: absolute;
+  z-index: 1;
+  width: 600px;
+  height: 590px;
+  padding-top: 80px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+  /*-webkit-filter: blur(2px);*/
+  background-color: white;
+}
+.xbutton {
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-top: 5px;
+  margin-right: 30px;
+  background: none;
+  border: 0;
+  color: black;
+  font-size: 20px;
+}
+.xbutton:hover {
+  background-color: red;
+  cursor: pointer;
+}
+.authorization {
+  z-index: 2;
+  position: fixed;
+  width: 600px;
+  height: 480px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+}
+
+.registration {
+  z-index: 2;
+  position: absolute;
+  width: 600px;
+  height: 670px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+}
+.loginbutton button {
+  margin-top: 15px;
+  width: 150px;
+  background-color: #3897f0;
+  /*background-color: black;*/
+  border: 0;
+  border-radius: 8px;
+  height: 60px;
+  color: white;
+  font-size: 16px;
+}
+.regbutton1 button {
+  margin-top: 10px;
+  width: 150px;
+  background-color: blue;
+  /*background-color: black;*/
+  border: 0;
+  border-radius: 8px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+.regbutton2 button {
+  margin-top: 10px;
+  width: 150px;
+  background-color: blue;
+  /*background-color: black;*/
+  border: 0;
+  border-radius: 8px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+.registration select {
+  margin-top: 0px;
+  height: 40px;
+  width: 300px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+}
+.authorization img {
+  margin-top: 60px;
+  width: 100px;
+  height: 100px;
+  margin-left: 65px;
+  margin-bottom: 20px;
+}
+.authorization div input {
+  margin-top: 18px;
+  height: 40px;
+  width: 300px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+  background-color: #bebebe;
+}
+.gymId {
+  height: 40px;
+  width: 150px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+}
+.registration div input {
+  height: 40px;
+  width: 300px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+  background-color: #bebebe;
+}
+
+.authorization span {
+  background-color: white;
+  /*float: left;*/
+  text-align: center;
+}

@@ -16,16 +16,23 @@ export interface ICoach {
   experience: number;
   work_days: string;
   image: string;
+  activity: string;
+  education: string;
+  hobby: string;
+  achievement: string;
   price: number;
 }
 export interface IClient {
   id: number;
   name: string;
   surname: string;
-  age: number;
+  username: string;
+  password: string;
+  email: string;
+  phone: string;
   status: string;
-  registered_date: string;
   image: string;
+  gym_id: number;
 }
 export interface ITest {
   id: number;
@@ -49,6 +56,7 @@ export interface IFeedback {
   id: number;
   date: string;
   comment: string;
+  client_id: number;
 }
 export interface IAuthResponse {
   'token': string;

@@ -1,0 +1,78 @@
+.phone {
+  /*color: #ef4430;*/
+  text-decoration: none;
+  /*background-color: #ffae00;*/
+  float: right;
+  margin-top: 100px;
+  margin-right: 44%;
+  color: #6524ff;
+  font-size: 30px;
+  background-color: black;
+}
+.aboutGym {
+  color: white;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  float:right;
+  /*background-color: #4fdee5;*/
+  width: 600px;
+  margin-right: 200px;
+  height: 550px;
+  margin-top: 55px;
+  display: inline-block;
+}
+.gymName {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+.gymName span {
+  color: red;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.gym img {
+  width: 600px;
+  height: 400px;
+  border-radius: 8px;
+}
+.gym {
+  /*background-color: #ff4c43;*/
+  height: 1800px;
+}
+.coaches {
+  margin-top: 50px;
+}
+.photoGym {
+  float: left;
+  display: inline-block;
+  /*background-color: #551fff;*/
+  margin-left: 200px;
+}
+.scrollbar {
+  font-size: 20px;
+  width: 500px;
+  height: 375px;
+  overflow-y: scroll;
+  background-color: #1c2833;
+  color: white;
+  text-align: center;
+}
+.redRows {
+  font-size: 16px;
+  color: #e73000;
+}
+.whiteRows {
+  font-size: 16px;
+  color: white;
+}
+table {
+  color: white;
+  font-family: ProximaNova-Regular,Arial,sans-serif;
+  text-align: center;
+}
+.divOfTable {
+  margin-top: 100px;
+  float: right;
+  margin-right: 340px;
+  background-color: black;
+}

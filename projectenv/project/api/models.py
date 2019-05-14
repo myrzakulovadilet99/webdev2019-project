@@ -27,11 +27,14 @@ class Gym(models.Model):
 class Coach(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    # photo = models.ImageField()
     experience = models.IntegerField()
     work_days = models.CharField(max_length=200)
     image = models.CharField(max_length=400, default=None, null=True)
     price = models.IntegerField(default=None, null=True)
+    activity = models.TextField(default=None, null=True)
+    education = models.TextField(default=None, null=True)
+    hobby = models.TextField(default=None, null=True)
+    achievement = models.TextField(default=None, null=True)
     gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
     objects = GymManager()
 
@@ -46,16 +49,19 @@ class Coach(models.Model):
 class Client(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    age = models.IntegerField()
-    status = models.CharField(max_length=200)
-    registered_date = models.DateTimeField()
-    image = models.CharField(max_length=400, default=None, null=True)
-    coach = models.ForeignKey(Coach, on_delete=models.CASCADE, default=None, null=True)
+    username = models.CharField(max_length=200, default=None, null=True)
+    password = models.CharField(max_length=200, default=None, null=True)
+    email = models.CharField(max_length=200, default=None, null=True)
+    phone = models.CharField(max_length=200, default=None, null=True)
+    status = models.CharField(max_length=200, default=None, null=True)
+    # coach = models.ForeignKey(Coach, on_delete=models.CASCADE, default=None, null=True)
     gym = models.ForeignKey(Gym, on_delete=models.CASCADE, default=None, null=True)
     objects = GymManager()
+    image = models.CharField(max_length=400, default='https://cdn1.vectorstock.com/i/1000x1000/82/55/anonymous-user-circle-icon-vector-18958255.jpg', null=True)
 
     def __str__(self):
         return self.name
+
 
 
 class Test(models.Model):

@@ -1,0 +1,12 @@
+
+<div class = "coaches">
+  <h1>Наши тренеры:</h1>
+  <figure class="figCoach" *ngFor="let coach of coaches">
+    <a><img src="{{coach.image}}" (click)="coachDetail(coach)"></a>
+    <figcaption class="coachName">
+      <h2 style="text-align: center; color: white; font-family: 'Yu Gothic';">{{coach.name}} {{coach.surname}}</h2>
+      <p style="border-radius: 8px; color: white; font-size: 20px; font-weight: bold;background-color: rgb(255,37,3); height: 30px; padding-top: 4px; text-align: center;" (click)="coachDetail(coach)">фитнес-инструктор</p>
+      <p style="color: white; max-width: 300px; font-weight: bold;">Опыт работы инструктором: {{coach.experience}} года. Стоймость индивидуального тренинга: {{coach.price}}тг.(1 мес./12 занятий)</p>
+    </figcaption>
+  </figure>
+</div>

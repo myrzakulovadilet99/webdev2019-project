@@ -7,28 +7,24 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
-@api_view(['POST'])
-@permission_classes((IsAuthenticated, ))
-def gym_list(request):
-    serializer = GymSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-
 @api_view(['GET'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((AllowAny,))
 def gym_list(request):
     if request.method == 'GET':
         gym_lists = Gym.objects.all()
         serializer = GymSerializer(gym_lists, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    if request.method == 'POST':
+        serializer = GymSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({'error': 'bad request'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((AllowAny,))
 def get_gym_detail(request, pk):
     try:
         gym = Gym.objects.get(id=pk)

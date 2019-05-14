@@ -14,7 +14,7 @@ class Feedback(generics.ListCreateAPIView):
         return gym.feedback_set.all()
 
     serializer_class = FeedbackSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (AllowAny, )
 
 
 class ShowTest(generics.ListCreateAPIView):
@@ -77,4 +77,4 @@ class SubscriptionDetail(generics.RetrieveUpdateDestroyAPIView):
 class AboutText(generics.ListAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (AllowAny, )

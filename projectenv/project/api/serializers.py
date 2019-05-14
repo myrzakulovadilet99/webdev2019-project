@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Client, Coach, Test, Subscription, Gym, About
+from api.models import Client, Coach, Test, Subscription, Gym, About, Feedback
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -45,34 +45,49 @@ class CoachSerializer(serializers.ModelSerializer):
     work_days = serializers.CharField(required=True)
     image = serializers.CharField(required=True)
     price = serializers.IntegerField(required=True)
+    activity = serializers.CharField()
+    education = serializers.CharField()
+    hobby = serializers.CharField()
+    achievement = serializers.CharField()
     gym_id = serializers.IntegerField(write_only=True)
 
     class Meta:
         model = Coach
-        fields = ('id', 'name', 'surname', 'experience', 'work_days', 'image', 'gym_id', 'price')
+        fields = ('id', 'name', 'surname', 'experience', 'work_days', 'image', 'activity', 'education', 'hobby', 'achievement', 'gym_id', 'price')
 
 
 class ClientSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
     surname = serializers.CharField(required=True)
-    age = serializers.IntegerField(required=True)
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
+    email = serializers.CharField(required=True)
+    phone = serializers.CharField(required=True)
     status = serializers.CharField(required=True)
-    registered_date = serializers.DateTimeField(required=True)
-    image = serializers.CharField(required=True)
-    coach_id = serializers.IntegerField(write_only=True, required=False)
-    gym_id = serializers.IntegerField(write_only=True)
+    # age = serializers.IntegerField(required=True)
+    # status = serializers.CharField(required=True)
+    # registered_date = serializers.DateTimeField(required=True)
+    image = serializers.CharField()
+    # coach_id = serializers.IntegerField(write_only=True, required=False)
+    gym_id = serializers.IntegerField(required=True)
     class Meta:
         model = Client
-        fields = ('id', 'name', 'surname', 'age', 'status', 'registered_date', 'image', 'coach_id', 'gym_id')
+        fields = ('id', 'name', 'surname', 'username', 'password', 'email', 'phone', 'status', 'image', 'gym_id')
 
 
 class FeedbackSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    client_id = serializers.IntegerField(write_only=True)
+    client_id = serializers.IntegerField(required=True)
     date = serializers.DateTimeField(required=True)
     comment = serializers.CharField(required=True)
     gym_id = serializers.IntegerField(write_only=True)
+    class Meta:
+        model = Feedback
+        fields = ('id', 'client_id', 'date', 'comment', 'gym_id')
+
+    def create(self, validated_data):
+        return Feedback.objects.create(**validated_data)
 
 class TestSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)

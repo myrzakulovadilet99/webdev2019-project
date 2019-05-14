@@ -14,7 +14,7 @@ class CoachAdmin(admin.ModelAdmin):
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'registered_date', 'gym', 'coach')
+    list_display = ('name', 'status', 'gym')
 
 
 @admin.register(Test)

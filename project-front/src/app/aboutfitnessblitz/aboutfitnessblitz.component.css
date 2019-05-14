@@ -1,0 +1,45 @@
+h1 {
+  color: #ff0000;
+  text-align: center;
+  font-size: 50px;
+}
+.about {
+  font-family: 'Open Sans', sans-serif;
+}
+.fitnessText1 {
+  width: 650px;
+  display: inline-block ;
+  margin-left: 200px;
+  font-size: 22px;
+  color: white;
+  /*background-color: black;*/
+}
+.fitnessPhoto {
+  width: 500px;
+  float: right;
+  margin-right: 250px;
+}
+.fitnessText2 p {
+  margin-top: 50px;
+  text-align: center;
+  margin-left: 0;
+  width: 1280px;
+  color: white;
+}
+.verificated {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+.verificated img{
+  width: 40px;
+  height: 40px;
+}
+.fitnessText3 {
+  width: 1200px;
+  display: inline-block ;
+  font-size: 22px;
+  margin-top: 70px;
+  color: white;
+}

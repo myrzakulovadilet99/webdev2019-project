@@ -1,3 +1,196 @@
-img {
-  max-width: 30%;
+body {
+  background-image: none;
 }
+.logo img {
+  height: 100px;
+  width: 200px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  /*background-color: black;*/
+}
+.logo {
+  width: 100px;
+  height: 150px;
+  /*background-color: black;*/
+  display: inline-block;
+
+}
+.logo h2 {
+  color: red;
+  background-color: #141414;
+  width: 180px;
+  font-weight: bold;
+  padding-left: 25px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.afterlogo {
+  width: 400px;
+  float: right;
+  margin-top: 65px;
+  /*background-color: black;*/
+}
+button {
+  cursor: pointer;
+}
+.ofitness {
+  cursor: pointer;
+  color: white;
+  padding: 14px 16px;
+  font-family: 'Open Sans',sans-serif;
+  text-decoration: none;
+  background-color: #1c2833;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  float: right;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+.ofitness:hover {
+  color: red;
+}
+.login {
+  cursor: pointer;
+  color: white;
+  padding: 14px 16px;
+  font-family: 'Open Sans',sans-serif;
+  text-decoration: none;
+  background-color: green;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  float: right;
+  border-radius: 8px;
+}
+.login:hover {
+  color: black;
+}
+.authorization img {
+  margin-top: 60px;
+  width: 100px;
+  height: 100px;
+  margin-left: 65px;
+  margin-bottom: 20px;
+}
+.background1 {
+  position: fixed;
+  z-index: 1;
+  width: 600px;
+  height: 400px;
+  padding-top: 80px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+  /*-webkit-filter: blur(2px);*/
+  background-color: white;
+  opacity: 0.5;
+}
+.background2 {
+  position: fixed;
+  z-index: 1;
+  width: 600px;
+  height: 540px;
+  padding-top: 80px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+  /*-webkit-filter: blur(2px);*/
+  background-color: white;
+  opacity: 0.5;
+}
+.xbutton {
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 30px;
+  background: none;
+  border: 0;
+  color: black;
+  font-size: 30px;
+}
+.authorization {
+  z-index: 2;
+  position: fixed;
+  width: 600px;
+  height: 480px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+}
+.registration {
+  z-index: 2;
+  position: fixed;
+  width: 600px;
+  height: 620px;
+  text-align: center;
+  /*padding-bottom: 0;*/
+  border: 1px solid black;
+  margin-left: 525px;
+  border-radius: 20px;
+}
+.loginbutton button {
+  width: 150px;
+  background-color: green;
+  /*background-color: black;*/
+  border: 0;
+  border-radius: 8px;
+  height: 60px;
+  color: white;
+  font-size: 16px;
+}
+.regbutton button {
+  margin-top: 10px;
+  width: 150px;
+  background-color: #4b62ff;
+  /*background-color: black;*/
+  border: 0;
+  border-radius: 8px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+.authorization div input {
+  margin-top: 18px;
+  height: 40px;
+  width: 300px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+  font-size: 22px;
+}
+.registration div input {
+  height: 40px;
+  width: 300px;
+  border-radius: 6px;
+  text-align: center;
+  border: 0;
+}
+/*#logout {*/
+/*  color: white;*/
+/*  background-color: #a70800;*/
+/*  font-family: Open Sans,sans-serif;*/
+/*  font-size: 16px;*/
+/*  font-weight: bold;*/
+/*  height: 47px;*/
+/*  border-radius: 4px;*/
+/*  margin-left: 20px;*/
+/*  width: 170px;*/
+/*  float: right;*/
+/*  margin-top: 30px;*/
+/*  border: 0;*/
+/*}*/
+/*#logout:hover {*/
+/*  font-family: Open Sans,sans-serif;*/
+/*  color: black;*/
+/*  cursor: pointer;*/
+/*}*/
